@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { FaCheck, FaGlobe } from "react-icons/fa";
+import { FaGlobe } from "react-icons/fa";
 
 export default function Chooser() {
     const { i18n } = useTranslation();

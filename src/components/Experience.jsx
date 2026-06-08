@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import { FaCalendarAlt, FaArrowRight, FaStar } from "react-icons/fa";

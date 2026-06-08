@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next';
-import { BsArrowRight, BsCheckCircle } from "react-icons/bs";
+import { BsCheckCircle } from "react-icons/bs";
 import { FaRegHandshake } from "react-icons/fa";
 
 export default function Section2() {

@@ -3,7 +3,6 @@ import { RiAdminFill } from "react-icons/ri";
 import { BsFillPeopleFill } from "react-icons/bs";
 import { GrMoney } from "react-icons/gr";
 import { RiCriminalLine } from "react-icons/ri";
-import { FaGavel } from "react-icons/fa";
 import { useTranslation } from 'react-i18next';
 
 export default function Section3() {

@@ -5,7 +5,7 @@ import { FaBriefcase, FaUsers, FaGlobe, FaTrophy } from "react-icons/fa";
 export default function Section4() {
     const { t } = useTranslation();
     const sectionRef = useRef(null);
-    const counterRefs = useRef([]);
+    // Удаляем неиспользуемый counterRefs
     
     useEffect(() => {
         const observer = new IntersectionObserver(

@@ -1,6 +1,5 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next';
-import { FaHeart } from "react-icons/fa";
 
 export default function Footer2() {
     const { t } = useTranslation();
