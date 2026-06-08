@@ -1,0 +1,320 @@
+/* ===== LANGUAGE CHOOSER MODAL ===== */
+.choose-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 5, 5, 0.92);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.choose-modal {
+    background: linear-gradient(135deg, #fff 0%, #faf9f7 100%);
+    border-radius: 20px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    padding: 40px 30px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Декоративный элемент */
+.choose-modal::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(213, 170, 109, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.choose-modal::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -20%;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(213, 170, 109, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Иконка */
+.choose-modal-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--main-color), var(--dark-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 10px 20px rgba(213, 170, 109, 0.3);
+}
+
+.choose-modal-icon svg {
+    width: 32px;
+    height: 32px;
+    color: #fff;
+}
+
+/* Заголовки */
+.choose-modal-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--title-color);
+    font-family: var(--playfair);
+    margin-bottom: 10px;
+}
+
+.choose-modal-subtitle {
+    font-size: 0.85rem;
+    color: var(--subtitle-color);
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+}
+
+/* Опции языков */
+.choose-language-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.choose-language-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 16px;
+    transition: all 0.5s;
+    background: #fff;
+    min-width: 110px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+}
+
+.choose-language-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(213, 170, 109, 0.15);
+    border-color: var(--main-color);
+}
+
+.choose-language-flag-wrapper {
+    width: 60px;
+    height: 45px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.choose-flag {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.choose-language-code {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--title-color);
+    margin-bottom: 4px;
+}
+
+.choose-language-name {
+    font-size: 0.7rem;
+    color: var(--subtitle-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Активное состояние (если нужно показать выбранный) */
+.choose-language-item.selected {
+    border-color: var(--main-color);
+    background: rgba(213, 170, 109, 0.05);
+}
+
+.choose-language-item.selected .choose-language-code {
+    color: var(--main-color);
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+
+/* Планшеты */
+@media (max-width: 1024px) {
+    .choose-modal {
+        padding: 35px 25px;
+        max-width: 450px;
+    }
+    
+    .choose-modal-title {
+        font-size: 1.6rem;
+    }
+    
+    .choose-language-item {
+        padding: 15px;
+        min-width: 100px;
+    }
+}
+
+/* Мобильные устройства */
+@media (max-width: 768px) {
+    .choose-modal {
+        padding: 30px 20px;
+        max-width: 90%;
+        border-radius: 16px;
+    }
+    
+    .choose-modal-icon {
+        width: 55px;
+        height: 55px;
+        margin-bottom: 15px;
+    }
+    
+    .choose-modal-icon svg {
+        width: 26px;
+        height: 26px;
+    }
+    
+    .choose-modal-title {
+        font-size: 1.3rem;
+    }
+    
+    .choose-modal-subtitle {
+        font-size: 0.75rem;
+        margin-bottom: 25px;
+    }
+    
+    .choose-language-options {
+        gap: 15px;
+    }
+    
+    .choose-language-item {
+        padding: 12px;
+        min-width: 85px;
+    }
+    
+    .choose-language-flag-wrapper {
+        width: 50px;
+        height: 38px;
+        margin-bottom: 8px;
+    }
+    
+    .choose-language-code {
+        font-size: 0.9rem;
+    }
+    
+    .choose-language-name {
+        font-size: 0.6rem;
+    }
+}
+
+/* Маленькие телефоны */
+@media (max-width: 480px) {
+    .choose-modal {
+        padding: 25px 15px;
+    }
+    
+    .choose-modal-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .choose-modal-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .choose-modal-title {
+        font-size: 1.1rem;
+    }
+    
+    .choose-language-options {
+        gap: 12px;
+    }
+    
+    .choose-language-item {
+        padding: 10px;
+        min-width: 75px;
+    }
+    
+    .choose-language-flag-wrapper {
+        width: 45px;
+        height: 35px;
+    }
+    
+    .choose-language-code {
+        font-size: 0.8rem;
+    }
+    
+    .choose-language-name {
+        display: none;
+    }
+}
+
+/* Большие экраны */
+@media (min-width: 1920px) {
+    .choose-modal {
+        max-width: 600px;
+        padding: 50px 40px;
+    }
+    
+    .choose-modal-title {
+        font-size: 2.2rem;
+    }
+    
+    .choose-language-item {
+        min-width: 130px;
+        padding: 25px;
+    }
+    
+    .choose-language-flag-wrapper {
+        width: 75px;
+        height: 55px;
+    }
+    
+    .choose-language-code {
+        font-size: 1.3rem;
+    }
+    
+    .choose-language-name {
+        font-size: 0.8rem;
+    }
+}

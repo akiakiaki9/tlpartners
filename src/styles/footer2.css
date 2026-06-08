@@ -1,0 +1,154 @@
+/* ===== FOOTER 2 / КОПИРАЙТ ===== */
+.footer2 {
+    background: linear-gradient(135deg, var(--black-color) 0%, #0a0505 100%);
+    padding: 20px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Декоративная линия сверху */
+.footer2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--main-color), transparent);
+}
+
+/* Паттерн */
+.footer2::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(213, 170, 109, 0.02) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+}
+
+.footer2-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 150px;
+}
+
+.footer2-blok {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.footer2-blok p {
+    color: var(--subtitle-color);
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.footer2-blok p a {
+    color: #fff;
+    transition: all 0.5s;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+}
+
+.footer2-blok p a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--main-color);
+    transition: width 0.5s;
+}
+
+.footer2-blok p a:hover::after {
+    width: 100%;
+}
+
+.footer2-blok p a:hover {
+    color: var(--main-color);
+}
+
+.footer2-heart {
+    width: 12px;
+    height: 12px;
+    color: #ff4d4d;
+    animation: heartbeat 1.5s ease infinite;
+    display: inline-block;
+    margin-left: 4px;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+
+/* Планшеты */
+@media (max-width: 1300px) {
+    .footer2-container {
+        padding: 0 20px;
+    }
+}
+
+/* Мобильные устройства */
+@media (max-width: 768px) {
+    .footer2 {
+        padding: 15px 0;
+    }
+    
+    .footer2-blok p {
+        font-size: 0.7rem;
+        gap: 6px;
+    }
+    
+    .footer2-heart {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* Маленькие телефоны */
+@media (max-width: 480px) {
+    .footer2 {
+        padding: 12px 0;
+    }
+    
+    .footer2-blok p {
+        font-size: 0.6rem;
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .footer2-blok p a::after {
+        bottom: -1px;
+    }
+}
+
+/* Большие экраны */
+@media (min-width: 1920px) {
+    .footer2-container {
+        padding: 0 200px;
+    }
+    
+    .footer2-blok p {
+        font-size: 0.9rem;
+    }
+}

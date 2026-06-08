@@ -1,0 +1,496 @@
+/* ===== SECTION 4 ===== */
+.section4 {
+    position: relative;
+    background-image: url(/public/images/section4-bg.png);
+    background-position: right;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+.section4-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.98) 100%);
+    pointer-events: none;
+}
+
+/* Декоративные элементы */
+.section4::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(213, 170, 109, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.section4::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(213, 170, 109, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.section4-blok {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+    gap: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.section4-blok__section-1 {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 280px;
+}
+
+.section4-blok__section-1 p {
+    letter-spacing: 3px;
+    font-size: 0.85rem;
+    color: var(--main-color);
+    font-weight: 500;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.section4-blok__section-1 h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--title-color);
+    font-family: var(--playfair, 'Playfair Display', serif);
+    line-height: 1.2;
+}
+
+.section4-blok__section-1 h1 span {
+    color: transparent;
+    font-family: var(--playfair);
+    font-style: italic;
+    background: linear-gradient(135deg, var(--main-color), var(--dark-color));
+    background-clip: text;
+    -webkit-background-clip: text;
+    padding: 0 2px;
+}
+
+.section4-blok__section-2 {
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.section4-blok__section-2 p {
+    max-width: 300px;
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+    position: relative;
+    padding-left: 20px;
+}
+
+.section4-blok__section-2 p::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 4px;
+    height: 4px;
+    background: var(--main-color);
+    border-radius: 50%;
+}
+
+/* Секция со счетчиками */
+.section4-footer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    position: relative;
+    z-index: 1;
+    margin-top: 20px;
+}
+
+.section4-footer__section {
+    padding: 40px 30px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUpCard 0.6s ease forwards;
+}
+
+@keyframes fadeInUpCard {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section4-footer__section:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Цветовые варианты */
+.section4-footer__section--main {
+    background: linear-gradient(135deg, var(--main-color), var(--dark-color));
+}
+
+.section4-footer__section--dark {
+    background: linear-gradient(135deg, var(--title-color), #1a1a1a);
+}
+
+/* Иконка */
+.section4-footer__section-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.section4-footer__section:hover .section4-footer__section-icon {
+    transform: scale(1.1) rotate(5deg);
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.section4-footer__section-icon svg {
+    width: 30px;
+    height: 30px;
+    color: #fff;
+}
+
+/* Цифры */
+.section4-footer__section__p-1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 10px;
+    font-family: var(--playfair, 'Playfair Display', serif);
+    letter-spacing: 2px;
+}
+
+/* Текст */
+.section4-footer__section__p-2 {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Декоративная линия при hover */
+.section4-footer__section-line {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.5);
+    transition: width 0.4s ease;
+    border-radius: 3px;
+}
+
+.section4-footer__section:hover .section4-footer__section-line {
+    width: 40%;
+}
+
+/* Анимации текста */
+.animate-text {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.section4-visible .animate-text:nth-child(1) { animation-delay: 0s; }
+.section4-visible .animate-text:nth-child(2) { animation-delay: 0.2s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+
+/* Планшеты */
+@media (max-width: 1024px) {
+    .section4 {
+        padding: 60px 0;
+        background-attachment: scroll;
+    }
+    
+    .section4-blok__section-1 h1 {
+        font-size: 2rem;
+    }
+    
+    .section4-blok__section-2 p {
+        font-size: 0.85rem;
+    }
+    
+    .section4-footer {
+        gap: 20px;
+    }
+    
+    .section4-footer__section {
+        padding: 35px 25px;
+    }
+    
+    .section4-footer__section-icon {
+        width: 55px;
+        height: 55px;
+    }
+    
+    .section4-footer__section-icon svg {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .section4-footer__section__p-1 {
+        font-size: 2.2rem;
+    }
+    
+    .section4-footer__section__p-2 {
+        font-size: 0.85rem;
+    }
+}
+
+/* Мобильные устройства */
+@media (max-width: 768px) {
+    .section4 {
+        padding: 50px 0;
+    }
+    
+    .section4-blok {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 40px;
+        gap: 25px;
+    }
+    
+    .section4-blok__section-1 {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .section4-blok__section-1 p {
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+    }
+    
+    .section4-blok__section-1 h1 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+    
+    .subtitle-line {
+        margin: 0 auto;
+    }
+    
+    .section4-blok__section-2 {
+        width: 100%;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .section4-blok__section-2 p {
+        font-size: 0.8rem;
+        max-width: 100%;
+        text-align: center;
+        padding-left: 0;
+    }
+    
+    .section4-blok__section-2 p::before {
+        display: none;
+    }
+    
+    .section4-footer {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .section4-footer__section {
+        padding: 25px 15px;
+    }
+    
+    .section4-footer__section-icon {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 12px;
+    }
+    
+    .section4-footer__section-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .section4-footer__section__p-1 {
+        font-size: 1.6rem;
+        margin-bottom: 5px;
+    }
+    
+    .section4-footer__section__p-2 {
+        font-size: 0.7rem;
+    }
+}
+
+/* Маленькие телефоны */
+@media (max-width: 580px) {
+    .section4 {
+        padding: 40px 0;
+    }
+    
+    .section4-blok__section-1 h1 {
+        font-size: 1.4rem;
+    }
+    
+    .section4-blok__section-2 {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .section4-blok__section-2 p {
+        font-size: 0.75rem;
+        text-align: center;
+    }
+    
+    .section4-footer {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+    
+    .section4-footer__section {
+        padding: 30px 20px;
+    }
+    
+    .section4-footer__section-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .section4-footer__section-icon svg {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .section4-footer__section__p-1 {
+        font-size: 1.8rem;
+    }
+    
+    .section4-footer__section__p-2 {
+        font-size: 0.8rem;
+    }
+}
+
+/* Очень маленькие телефоны */
+@media (max-width: 380px) {
+    .section4-blok__section-1 h1 {
+        font-size: 1.2rem;
+    }
+    
+    .section4-blok__section-1 p {
+        font-size: 0.65rem;
+    }
+    
+    .section4-blok__section-2 p {
+        font-size: 0.7rem;
+    }
+    
+    .section4-footer__section {
+        padding: 25px 15px;
+    }
+    
+    .section4-footer__section__p-1 {
+        font-size: 1.5rem;
+    }
+    
+    .section4-footer__section__p-2 {
+        font-size: 0.7rem;
+    }
+}
+
+/* Альбомная ориентация на телефонах */
+@media (max-width: 768px) and (orientation: landscape) {
+    .section4-footer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .section4-blok__section-2 {
+        flex-direction: row;
+    }
+}
+
+/* Большие экраны */
+@media (min-width: 1920px) {
+    .section4 {
+        padding: 100px 0;
+    }
+    
+    .section4-blok__section-1 h1 {
+        font-size: 3rem;
+    }
+    
+    .section4-blok__section-2 p {
+        font-size: 1rem;
+        max-width: 350px;
+    }
+    
+    .section4-footer {
+        gap: 30px;
+    }
+    
+    .section4-footer__section {
+        padding: 50px 40px;
+    }
+    
+    .section4-footer__section-icon {
+        width: 75px;
+        height: 75px;
+    }
+    
+    .section4-footer__section-icon svg {
+        width: 38px;
+        height: 38px;
+    }
+    
+    .section4-footer__section__p-1 {
+        font-size: 3rem;
+    }
+    
+    .section4-footer__section__p-2 {
+        font-size: 1rem;
+    }
+}

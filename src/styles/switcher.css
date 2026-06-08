@@ -1,0 +1,248 @@
+/* ===== LANGUAGE SWITCHER ===== */
+.language {
+    z-index: 100;
+}
+
+.language-switcher {
+    position: relative;
+    display: inline-block;
+    font-family: var(--poppins-sans);
+}
+
+.language-selected {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.5s;
+    color: #fff;
+    font-weight: 500;
+    font-size: 0.85rem;
+    min-width: 80px;
+}
+
+.language-selected:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--main-color);
+}
+
+.language-selected.open {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--main-color);
+}
+
+.language-flag {
+    width: 24px;
+    height: 18px;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.language-code {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.language-arrow {
+    width: 12px;
+    height: 12px;
+    transition: transform 0.5s;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Выпадающий список */
+.language-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: rgba(11, 5, 5, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    min-width: 160px;
+    overflow: hidden;
+    animation: dropdownFadeIn 0.3s ease;
+}
+
+@keyframes dropdownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.language-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 15px;
+    width: 100%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+    text-align: left;
+    color: #fff;
+    font-family: var(--poppins-sans);
+}
+
+.language-dropdown-item:hover {
+    background: rgba(213, 170, 109, 0.15);
+}
+
+.language-dropdown-item.active {
+    background: rgba(213, 170, 109, 0.2);
+    border-left: 3px solid var(--main-color);
+}
+
+.language-dropdown-item .language-flag {
+    width: 24px;
+    height: 18px;
+}
+
+.language-dropdown-item .language-name {
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.language-dropdown-item .language-label {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-left: auto;
+}
+
+.language-dropdown-item.active .language-label {
+    color: var(--main-color);
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+
+/* Планшеты */
+@media (max-width: 1024px) {
+    .language-selected {
+        padding: 6px 10px;
+        min-width: 70px;
+    }
+    
+    .language-flag {
+        width: 20px;
+        height: 15px;
+    }
+    
+    .language-code {
+        font-size: 0.8rem;
+    }
+    
+    .language-dropdown {
+        min-width: 140px;
+    }
+    
+    .language-dropdown-item {
+        padding: 8px 12px;
+        gap: 10px;
+    }
+    
+    .language-dropdown-item .language-name {
+        font-size: 0.8rem;
+    }
+    
+    .language-dropdown-item .language-label {
+        font-size: 0.65rem;
+    }
+}
+
+/* Мобильные устройства */
+@media (max-width: 768px) {
+    .language-selected {
+        padding: 6px 10px;
+        min-width: 65px;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    
+    .language-flag {
+        width: 18px;
+        height: 14px;
+    }
+    
+    .language-code {
+        font-size: 0.75rem;
+    }
+    
+    .language-arrow {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .language-dropdown {
+        min-width: 130px;
+        right: -10px;
+    }
+    
+    .language-dropdown-item {
+        padding: 8px 12px;
+        gap: 8px;
+    }
+    
+    .language-dropdown-item .language-name {
+        font-size: 0.75rem;
+    }
+    
+    .language-dropdown-item .language-label {
+        font-size: 0.6rem;
+    }
+}
+
+/* Маленькие телефоны */
+@media (max-width: 480px) {
+    .language-selected {
+        padding: 5px 8px;
+        min-width: 55px;
+    }
+    
+    .language-flag {
+        width: 16px;
+        height: 12px;
+    }
+    
+    .language-code {
+        font-size: 0.7rem;
+    }
+    
+    .language-dropdown {
+        min-width: 120px;
+        right: -5px;
+    }
+    
+    .language-dropdown-item {
+        padding: 6px 10px;
+    }
+    
+    .language-dropdown-item .language-name {
+        font-size: 0.7rem;
+    }
+    
+    .language-dropdown-item .language-label {
+        display: none;
+    }
+}
+
+/* Навбар скролл состояние */
+.navbar--scrolled .language-selected {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.navbar--scrolled .language-dropdown {
+    background: rgba(11, 5, 5, 0.98);
+}

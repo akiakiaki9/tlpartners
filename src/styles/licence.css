@@ -1,0 +1,681 @@
+/* ===== LICENCES / РЕКВИЗИТЫ ===== */
+.licence {
+    position: relative;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+    overflow: hidden;
+}
+
+.licence-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(/public/images/licence-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+/* Декоративные элементы */
+.licence::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(213, 170, 109, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.licence::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(213, 170, 109, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.licence-blok {
+    position: relative;
+    z-index: 2;
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+}
+
+.licence-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff !important;
+    font-family: var(--playfair, 'Playfair Display', serif);
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.licence-title-line {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--main-color), var(--dark-color));
+    border-radius: 5px;
+}
+
+.licence-btn {
+    padding: 12px 30px;
+    background: var(--main-color);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    font-family: var(--poppins-sans);
+    position: relative;
+    overflow: hidden;
+}
+
+.licence-btn:hover {
+    background: var(--dark-color);
+    transform: translateY(-2px);
+}
+
+/* Модальное окно */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 85vh;
+    overflow-y: auto;
+    animation: slideUp 0.4s ease;
+    box-shadow: 0 2px 29px rgba(34, 34, 34, .14);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Кастомный скролл */
+.modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+    border-radius: 10px;
+}
+
+/* Заголовок модального окна */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-header h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--title-color);
+    font-family: var(--playfair, 'Playfair Display', serif);
+    margin: 0;
+}
+
+.close-btn {
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.close-btn:hover {
+    background: var(--main-color);
+    transform: rotate(90deg);
+}
+
+.close-btn__icon {
+    width: 20px;
+    height: 20px;
+    color: #666;
+    transition: color 0.5s;
+}
+
+.close-btn:hover .close-btn__icon {
+    color: #fff;
+}
+
+/* Тело модального окна */
+.modal-body {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modal-body__section {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+}
+
+.modal-body__section:hover {
+    background: rgba(213, 170, 109, 0.05);
+    transform: translateX(5px);
+}
+
+.modal-body__section-icon {
+    flex-shrink: 0;
+    width: 45px;
+    height: 45px;
+    background: var(--main-color);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-body__icon {
+    width: 22px;
+    height: 22px;
+    color: #fff;
+}
+
+.modal-body__section-content {
+    flex: 1;
+}
+
+.modal-body__label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--main-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    font-family: var(--poppins-sans);
+}
+
+.modal-body__value-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.modal-body__value {
+    font-size: 0.9rem;
+    color: var(--title-color);
+    font-weight: 500;
+    word-break: break-word;
+    flex: 1;
+    font-family: var(--poppins-sans);
+}
+
+.modal-body__value span {
+    color: var(--main-color);
+    font-weight: 600;
+}
+
+.modal-body__copy {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: transparent;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    font-family: var(--poppins-sans);
+}
+
+.modal-body__copy:hover {
+    background: var(--main-color);
+    border-color: var(--main-color);
+    color: #fff;
+}
+
+.modal-body__copy svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* Футер модального окна */
+.modal-footer {
+    padding: 20px 30px;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+.modal-footer p {
+    font-size: 0.75rem;
+    color: #999;
+    font-family: var(--poppins-sans);
+}
+
+/* Анимации */
+.animate-text {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+
+/* Планшеты */
+@media (max-width: 1300px) {
+    .licence-blok {
+        padding: 60px 0;
+    }
+    
+    .licence-title {
+        font-size: 2rem;
+    }
+    
+    .licence-title-line {
+        width: 50px;
+        height: 4px;
+    }
+}
+
+/* Мобильные устройства */
+@media (max-width: 768px) {
+    .licence {
+        background-size: cover;
+    }
+    
+    .licence-blok {
+        padding: 50px 0;
+        gap: 20px;
+    }
+    
+    .licence-title {
+        font-size: 1.5rem;
+    }
+    
+    .licence-title-line {
+        width: 40px;
+        height: 3px;
+        bottom: -12px;
+    }
+    
+    .licence-btn {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+    
+    .modal-content {
+        width: 95%;
+        max-height: 80vh;
+    }
+    
+    .modal-header {
+        padding: 20px;
+    }
+    
+    .modal-header h3 {
+        font-size: 1.2rem;
+    }
+    
+    .close-btn {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .close-btn__icon {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .modal-body {
+        padding: 20px;
+        gap: 15px;
+    }
+    
+    .modal-body__section {
+        padding: 12px;
+        gap: 12px;
+    }
+    
+    .modal-body__section-icon {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .modal-body__icon {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .modal-body__label {
+        font-size: 0.65rem;
+    }
+    
+    .modal-body__value {
+        font-size: 0.8rem;
+    }
+    
+    .modal-body__copy {
+        padding: 4px 10px;
+        font-size: 0.65rem;
+    }
+    
+    .modal-footer {
+        padding: 15px 20px;
+    }
+}
+
+/* Маленькие телефоны */
+@media (max-width: 480px) {
+    .licence-title {
+        font-size: 1.2rem;
+    }
+    
+    .licence-title-line {
+        width: 35px;
+        height: 3px;
+    }
+    
+    .licence-btn {
+        padding: 8px 22px;
+        font-size: 0.85rem;
+    }
+    
+    .modal-body__section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .modal-body__value-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .modal-body__copy {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Большие экраны */
+@media (min-width: 1920px) {
+    .licence-blok {
+        padding: 100px 0;
+    }
+    
+    .licence-title {
+        font-size: 3rem;
+    }
+    
+    .licence-title-line {
+        width: 70px;
+        height: 4px;
+    }
+    
+    .licence-btn {
+        padding: 14px 35px;
+        font-size: 1.1rem;
+    }
+}
+
+/* ===== МОДАЛЬНОЕ ОКНО (МИНИМАЛИСТИЧНАЯ ВЕРСИЯ) ===== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-header h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--title-color);
+}
+
+.close-btn {
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.close-btn__icon {
+    width: 18px;
+    height: 18px;
+    color: #999;
+}
+
+.close-btn:hover .close-btn__icon {
+    color: var(--main-color);
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-body__section {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.modal-body__section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.modal-body__section-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: var(--main-color);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-body__icon {
+    width: 18px;
+    height: 18px;
+    color: #fff;
+}
+
+.modal-body__section-content {
+    flex: 1;
+}
+
+.modal-body__label {
+    font-size: 0.7rem;
+    color: #999;
+    margin-bottom: 3px;
+}
+
+.modal-body__value {
+    font-size: 0.85rem;
+    color: var(--title-color);
+    font-weight: 500;
+    word-break: break-word;
+}
+
+.modal-body__value span {
+    color: var(--main-color);
+}
+
+.modal-body__copy {
+    margin-left: 10px;
+    padding: 4px 8px;
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.65rem;
+    color: #666;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.modal-body__copy:hover {
+    background: var(--main-color);
+    border-color: var(--main-color);
+    color: #fff;
+}
+
+.modal-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+    text-align: center;
+    font-size: 0.7rem;
+    color: #999;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .modal-header {
+        padding: 15px;
+    }
+    
+    .modal-header h3 {
+        font-size: 1rem;
+    }
+    
+    .modal-body {
+        padding: 15px;
+    }
+    
+    .modal-body__section {
+        gap: 10px;
+    }
+    
+    .modal-body__section-icon {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .modal-body__icon {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .modal-body__value {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-body__section {
+        flex-direction: column;
+    }
+    
+    .modal-body__section-content {
+        width: 100%;
+    }
+    
+    .modal-body__copy {
+        margin-left: 0;
+        margin-top: 8px;
+        width: 100%;
+        text-align: center;
+    }
+}

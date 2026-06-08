@@ -1,0 +1,446 @@
+/* ===== SECTION 3 ===== */
+.section3 {
+    position: relative;
+    background-image: linear-gradient(135deg, 
+        rgba(11, 5, 5, 0.95) 0%, 
+        rgba(0, 0, 0, 0.9) 100%);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.section3-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(/public/images/section3-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+/* Декоративные элементы */
+.section3::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: -10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(213, 170, 109, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.section3::after {
+    content: '';
+    position: absolute;
+    bottom: 10%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(213, 170, 109, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Заголовок секции */
+.section3-sar {
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.section3-sar__subtitle {
+    letter-spacing: 3px;
+    font-size: 0.85rem;
+    color: var(--main-color);
+    font-weight: 500;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    padding: 5px 15px;
+    background: rgba(213, 170, 109, 0.1);
+    border-radius: 30px;
+}
+
+.section3-sar h1 {
+    max-width: 600px;
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: var(--playfair, 'Playfair Display', serif);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.section3-sar h1 span {
+    color: transparent;
+    font-family: var(--playfair);
+    font-style: italic;
+    background: linear-gradient(135deg, var(--main-color), var(--dark-color));
+    background-clip: text;
+    -webkit-background-clip: text;
+    padding: 0 2px;
+}
+
+.subtitle-line--center {
+    margin: 0 auto;
+}
+
+/* Сетка карточек */
+.section3-blok {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.section3-blok__section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    padding: 40px 30px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.section3-visible .section3-blok__section {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hover эффект */
+.section3-blok__section:hover {
+    transform: translateY(-10px);
+    border-color: var(--main-color);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Декоративная линия при hover */
+.section3-blok__section-line {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--main-color), var(--dark-color));
+    transition: width 0.4s ease;
+    border-radius: 3px;
+}
+
+.section3-blok__section:hover .section3-blok__section-line {
+    width: 60%;
+}
+
+/* Иконка */
+.section3-blok__section-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, rgba(213, 170, 109, 0.15), rgba(155, 111, 69, 0.1));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin-bottom: 5px;
+}
+
+.section3-blok__section:hover .section3-blok__section-icon {
+    transform: scale(1.05) rotate(5deg);
+    background: linear-gradient(135deg, rgba(213, 170, 109, 0.25), rgba(155, 111, 69, 0.15));
+}
+
+.section3__icon {
+    width: 35px;
+    height: 35px;
+    color: var(--main-color);
+    transition: all 0.3s ease;
+}
+
+.section3-blok__section:hover .section3__icon {
+    transform: scale(1.1);
+    color: var(--dark-color);
+}
+
+/* Текст */
+.section3-blok__section__p-1 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-top: 5px;
+    transition: color 0.3s ease;
+}
+
+.section3-blok__section:hover .section3-blok__section__p-1 {
+    color: var(--main-color);
+}
+
+.section3-blok__section__p-2 {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    letter-spacing: 0.3px;
+    transition: color 0.3s ease;
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+
+/* Планшеты */
+@media (max-width: 1024px) {
+    .section3 {
+        padding: 80px 0;
+    }
+    
+    .section3-sar h1 {
+        font-size: 2rem;
+    }
+    
+    .section3-blok {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .section3-blok__section {
+        padding: 35px 25px;
+    }
+    
+    .section3-blok__section-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .section3__icon {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .section3-blok__section__p-1 {
+        font-size: 1.1rem;
+    }
+    
+    .section3-blok__section__p-2 {
+        font-size: 0.85rem;
+    }
+}
+
+/* Мобильные устройства */
+@media (max-width: 768px) {
+    .section3 {
+        padding: 60px 0;
+        background-attachment: scroll;
+    }
+    
+    .section3-sar {
+        margin-bottom: 40px;
+        gap: 10px;
+    }
+    
+    .section3-sar__subtitle {
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+        padding: 4px 12px;
+    }
+    
+    .section3-sar h1 {
+        font-size: 1.6rem;
+        max-width: 90%;
+    }
+    
+    .section3-blok {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .section3-blok__section {
+        padding: 30px 20px;
+        gap: 12px;
+    }
+    
+    .section3-blok__section-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 16px;
+    }
+    
+    .section3__icon {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .section3-blok__section__p-1 {
+        font-size: 1rem;
+    }
+    
+    .section3-blok__section__p-2 {
+        font-size: 0.8rem;
+        line-height: 1.6;
+    }
+    
+    .section3-blok__section-line {
+        display: none;
+    }
+}
+
+/* Маленькие телефоны */
+@media (max-width: 480px) {
+    .section3 {
+        padding: 50px 0;
+    }
+    
+    .section3-sar h1 {
+        font-size: 1.4rem;
+    }
+    
+    .section3-sar__subtitle {
+        font-size: 0.65rem;
+        letter-spacing: 1.5px;
+    }
+    
+    .section3-blok__section {
+        padding: 25px 15px;
+    }
+    
+    .section3-blok__section-icon {
+        width: 45px;
+        height: 45px;
+        border-radius: 14px;
+    }
+    
+    .section3__icon {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .section3-blok__section__p-1 {
+        font-size: 0.95rem;
+    }
+    
+    .section3-blok__section__p-2 {
+        font-size: 0.75rem;
+        line-height: 1.5;
+    }
+}
+
+/* Очень маленькие телефоны */
+@media (max-width: 360px) {
+    .section3-sar h1 {
+        font-size: 1.2rem;
+    }
+    
+    .section3-blok__section {
+        padding: 20px 12px;
+    }
+    
+    .section3-blok__section-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+    }
+    
+    .section3__icon {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .section3-blok__section__p-1 {
+        font-size: 0.9rem;
+    }
+    
+    .section3-blok__section__p-2 {
+        font-size: 0.7rem;
+    }
+}
+
+/* Планшеты в альбомной ориентации */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+    .section3-blok {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Большие экраны */
+@media (min-width: 1920px) {
+    .section3 {
+        padding: 120px 0;
+    }
+    
+    .section3-sar h1 {
+        font-size: 3rem;
+        max-width: 800px;
+    }
+    
+    .section3-blok {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 35px;
+    }
+    
+    .section3-blok__section {
+        padding: 45px 35px;
+    }
+    
+    .section3-blok__section-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 24px;
+    }
+    
+    .section3__icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .section3-blok__section__p-1 {
+        font-size: 1.3rem;
+    }
+    
+    .section3-blok__section__p-2 {
+        font-size: 1rem;
+    }
+}
+
+/* Анимация появления карточек */
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section3-visible .section3-blok__section {
+    animation: cardAppear 0.6s ease forwards;
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.section3-visible .section3-blok__section:nth-child(1) { animation-delay: 0s; }
+.section3-visible .section3-blok__section:nth-child(2) { animation-delay: 0.1s; }
+.section3-visible .section3-blok__section:nth-child(3) { animation-delay: 0.2s; }
+.section3-visible .section3-blok__section:nth-child(4) { animation-delay: 0.3s; }
